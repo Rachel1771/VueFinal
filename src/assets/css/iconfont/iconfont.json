@@ -1,0 +1,114 @@
+{
+  "id": "2448847",
+  "name": "ego",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "642067",
+      "name": "manage",
+      "font_class": "hetongguanli",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "1263402",
+      "name": "icon_email",
+      "font_class": "youxiang",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "1625002",
+      "name": "icon_quit",
+      "font_class": "icon_quit",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "1988595",
+      "name": "icon-service",
+      "font_class": "icon-service",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "8080103",
+      "name": "icon_nav",
+      "font_class": "icon_nav",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "13020823",
+      "name": "product",
+      "font_class": "product",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "15838425",
+      "name": "add-circle",
+      "font_class": "add-circle",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "1010160",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "10292039",
+      "name": "删 除",
+      "font_class": "shanchu2",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "5466093",
+      "name": "add",
+      "font_class": "add",
+      "unicode": "e734",
+      "unicode_decimal": 59188
+    },
+    {
+      "icon_id": "8765253",
+      "name": "修改",
+      "font_class": "xiugai",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "16513280",
+      "name": "删除",
+      "font_class": "shanchu1",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "15167662",
+      "name": "user",
+      "font_class": "user_1",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "5127490",
+      "name": "right-indent",
+      "font_class": "right-indent",
+      "unicode": "e805",
+      "unicode_decimal": 59397
+    },
+    {
+      "icon_id": "5127390",
+      "name": "left-indent",
+      "font_class": "left-indent",
+      "unicode": "e7b7",
+      "unicode_decimal": 59319
+    }
+  ]
+}
