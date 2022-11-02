@@ -5,10 +5,10 @@
       <el-input @change="searchInp" v-model="input" placeholder="请输入内容"></el-input>
       <!-- <el-input v-model="input" placeholder="请输入内容"></el-input> -->
       <el-button type="primary">查询</el-button>
-      <el-button type="success">
+      <!-- <el-button type="success">
         <router-link to="/add-goods" style="color: #fff">添加</router-link>
-      </el-button>
-      <el-button type="primary" @click="addGoods">弹框添加</el-button>
+      </el-button> -->
+      <el-button type="primary" @click="addGoods">添加</el-button>
     </div>
     <!-- 2. 表格区域展示视图数据 -->
     <div class="wrapper">
@@ -64,14 +64,17 @@
       :pageSize="pageSize"
       @changePage="changePage"
     />
+    <GoodsDialog ref='dialog' />
   </div>
 </template>
 
 <script>
 import MyPagination from "../../components/MyPagination.vue";
+import GoodsDialog from "./GoodsDialog.vue";
 export default {
   components: {
     MyPagination,
+    GoodsDialog,
   },
   data() {
     return {
@@ -92,7 +95,16 @@ export default {
       this.$nextTick(() => {//重新渲染分页
     		this.show = true;});
     },
-    
+    //弹窗添加
+    addGoods() {
+      // this.dialogVisible = true;
+      //修改子组件实例的数据
+      this.$refs.dialog.dialogVisible = true;
+      this.title ='添加商品'
+    },
+    changeDialog() {
+      this.dialogVisible = false;
+    },
     /**
      * 查询操作
      */
