@@ -22,6 +22,15 @@ const api ={
     getSearch(params){
         return  axios.get(base.search,{params})
     },
+
+     /**
+      * 添加产品
+      */
+      addGoods(params){//={}
+        return axios.get(base.addGoods,{
+            params
+        })
+    },
 }
 
 export default api

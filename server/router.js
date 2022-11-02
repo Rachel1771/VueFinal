@@ -54,7 +54,39 @@ router.get("/search", (req, res) => {
     })
 })
 
+/**
+ * 产品添加
+ * 
+ */
+ router.get("/backend/item/insertTbItem", (req, res) => {
+    /**
+     * 获取参数
+     */
+    var id = req.query.id || "";
+    var name = req.query.name || "";
+    var price = req.query.price || "";
+    var num = req.query.num || "";
+    var position = req.query.position || "";
+    var audience = req.query.audience || "";
+    var description = req.query.description || "";
+    
 
+    const sql = "insert into goodslist values (?,?,?,?,?,?,?)"
+    var arr = [id,name,price,num,position,audience,description];
+    sqlFn(sql, arr, result => {
+        if (result.affectedRows > 0) {
+            res.send({
+                status: 200,
+                msg: "添加成功"
+            })
+        } else {
+            res.send({
+                status: 500,
+                msg: "添加失败"
+            })
+        }
+    })
+})
 
 
 

@@ -3,13 +3,10 @@
     <!-- 1. 搜索区域 -->
     <div class="header">
       <el-input @change="searchInp" v-model="input" placeholder="请输入内容"></el-input>
-      <!-- <el-input v-model="input" placeholder="请输入内容"></el-input> -->
       <el-button type="primary">查询</el-button>
-      <!-- <el-button type="success">
-        <router-link to="/add-goods" style="color: #fff">添加</router-link>
-      </el-button> -->
       <el-button type="primary" @click="addGoods">添加</el-button>
     </div>
+
     <!-- 2. 表格区域展示视图数据 -->
     <div class="wrapper">
       <el-table :data="tableData" border>
@@ -62,9 +59,8 @@
     <MyPagination
       :total="total"
       :pageSize="pageSize"
-      @changePage="changePage"
-    />
-    <GoodsDialog ref='dialog' />
+      @changePage="changePage" />
+      <GoodsDialog ref="dialog" :title="title" :rowData='rowData' />
   </div>
 </template>
 
@@ -110,7 +106,7 @@ export default {
      */
      searchInp(val) {
       if (!val) {
-        this.http(1);
+        this.goodslist(1);
         this.currentPage = 1;
         this.type = 1;
         return;
