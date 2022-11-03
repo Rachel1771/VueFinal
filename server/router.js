@@ -88,6 +88,28 @@ router.get("/search", (req, res) => {
     })
 })
 
+/**
+ * 产品删除
+ */
+router.get("/backend/item/deleteItemById",(req, res)=>{
+    var id = req.query.id;
+    const sql = "delete from goodslist where id = ?"
+    const a = [id];
+    sqlFn(sql,a,result=>{
+        if(result.affectedRows>0){
+            res.send({
+                status:200,
+                msg:"删除成功"
+            })
+        }
+        else{
+            res.send({
+                status:500,
+                msg:"删除失败"
+            })
+        }
+    })
+})
 
 
 

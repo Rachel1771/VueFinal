@@ -12,6 +12,7 @@ const base ={
     goodsList:'/api/api/projectList', //商品列表
     search:'/api/api/search',    //商品的搜索功能
     addGoods:'/api/api/backend/item/insertTbItem',//添加商品
+    deleteGoods:'api/api/backend/item/deleteItemById',//删除产品
     
 
 }

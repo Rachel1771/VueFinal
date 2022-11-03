@@ -1,4 +1,4 @@
-# vue-ego
+# vue-project
 
 ## Project setup
 ```
@@ -21,3 +21,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 启动问题
 set NODE_OPTIONS=--openssl-legacy-provider
+
+### 仓库管理的Git指令
+- git add .
+- git commit -m""
+- git pull --rebase origin master  
+- git push -u origin master

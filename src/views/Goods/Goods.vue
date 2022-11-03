@@ -11,45 +11,25 @@
     <div class="wrapper">
       <el-table :data="tableData" border>
         <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column prop="id" label="产品" width="100">
+        <el-table-column prop="id" label="产品序号" width="100">
         </el-table-column>
-        <el-table-column
-          prop="name"
-          label="产品名称"
-          width="100"
-          show-overflow-tooltip
-        >
+        <el-table-column prop="name" label="产品名称" width="130" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="price" label="产品价格" width="130">
         </el-table-column>
-        <el-table-column prop="price" label="产品价格" width="100">
+        <el-table-column prop="num" label="产品数量" width="130">
         </el-table-column>
-        <el-table-column prop="num" label="产品数量" width="100">
+        <el-table-column prop="position" label="产品定位" width="130">
         </el-table-column>
-        <el-table-column prop="position" label="产品定位" width="100">
-        </el-table-column>
-        <el-table-column prop="image" label="产品图片" show-overflow-tooltip>
-        </el-table-column>
-        <el-table-column prop="audience" label="产品受众"show-overflow-tooltip>
+        <!-- <el-table-column prop="image" label="产品图片" show-overflow-tooltip>
+        </el-table-column> -->
+        <el-table-column prop="audience" label="产品受众"width="130">
         </el-table-column>
         <el-table-column prop="description" label="产品描述" show-overflow-tooltip>
         </el-table-column>
         <el-table-column label="操作" width="280">
           <template slot-scope="scope">
-            <el-button size="mini">查看</el-button>
-            <el-button
-              type="primary"
-              size="mini"
-              @click="handleEdit(scope.$index, scope.row)"
-              icon="el-icon-edit"
-            >
-              编辑</el-button
-            >
-            <el-button
-              size="mini"
-              type="danger"
-              @click="handleDelete(scope.$index, scope.row)"
-              icon="el-icon-delete"
-              >删除</el-button
-            >
+            <el-button size ="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete">删除</el-button>
+            
           </template>
         </el-table-column>
       </el-table>
@@ -142,7 +122,32 @@ export default {
     /**
      * 删除操作
      */
-    handleDelete() {},
+    handleDelete(index,row) {
+      console.log("删除",index,row);
+      this.$confirm("是否确定删除产品","提示",{
+        confirmButtonText:"确定",
+        cancelButtonText:"取消",
+        type:"warning",
+      }).then(()=>{
+        this.$api.deleteGoods({
+          id:row.id,
+        }).then((res)=>{
+          console.log("删除",res.data);
+          if(res.data.status===200){
+            this.$message({
+              type:"success",
+              message:"删除成功",
+            });
+            this.getlist(1);
+          }
+        });
+      }).catch(()=>{
+        this.$message({
+          type:"info",
+          message:"成功取消删除",
+        });
+      })
+    },
     /**
      * 产品列表获取
      */
