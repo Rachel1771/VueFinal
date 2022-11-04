@@ -7949,6 +7949,11 @@
   "resolved" "https://registry.npmmirror.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz"
   "version" "2.3.4"
 
+"vue-i18n@^8.23.0":
+  "integrity" "sha512-mXgniaumwca8tKdp55fmvqIcW658vQQXq0zEyRHp8sgZ6t+Md+Whhu6CCPg9/erVNlvpKzsGsucGjt2N8GrFCA=="
+  "resolved" "https://mirrors.huaweicloud.com/repository/npm/vue-i18n/-/vue-i18n-8.23.0.tgz"
+  "version" "8.23.0"
+
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   "integrity" "sha512-7vKN45IxsKxe5GcVCbc2qFU5aWzyiLrYJyUuMz4BQLKctCj/fmCa0w6fGiiQ2cLFetNcek1ppGJQDCup0c1hpA=="
   "resolved" "https://registry.npmmirror.com/vue-loader/-/vue-loader-16.8.3.tgz"
