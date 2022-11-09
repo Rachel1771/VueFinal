@@ -4,6 +4,7 @@
 
 import axios from 'axios'
 import base from './base'
+const qs = require('querystring')
 
 const api ={
     /**
@@ -38,6 +39,13 @@ const api ={
      deleteGoods(params){
         return axios.get(base.deleteGoods,{params})
     },
+
+    /**
+      * 登录接口
+      */
+     getLogin(params){
+        return axios.post(base.login,qs.stringify(params))
+     },
 }
 
 export default api

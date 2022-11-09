@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 //导入数据库 sqlFn('sql',[],res=>{})
 const sqlFn = require('./mysql')
-
+const jwt = require('jsonwebtoken')
+const config = require('./secert')
 /**
  * 商品列表：获取分页 {total:'',arr:[{},{},{}],pagesize:8,}
  * 参数：page 页码
@@ -111,7 +112,35 @@ router.get("/backend/item/deleteItemById",(req, res)=>{
     })
 })
 
+/**
+ * 用户登录
+ */
+router.post('/login', (req, res) => {
+    let {username,password} = req.body
+    //请求数据库
+    let sql = "select * from userinfo where username=? and password=?";
+    let arr = [username, password]
+    sqlFn(sql, arr, result => {
+        if (result.length > 0) {
+            let token = jwt.sign({
+                username: result[0].username,
+                id: result[0].id
+            }, config.jwtSecert, {
+                expiresIn: 20 * 1
+            })
+            res.send({
+                status: 200,
+                data: token
+            })
+        } else {
+            res.send({
+                status: 404,
+                msg: '信息错误'
+            })
+        }
 
+    })
+})
 
 
 

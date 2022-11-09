@@ -13,6 +13,7 @@ const base ={
     search:'/api/api/search',    //商品的搜索功能
     addGoods:'/api/api/backend/item/insertTbItem',//添加商品
     deleteGoods:'api/api/backend/item/deleteItemById',//删除产品
+    login:'api/api/login'//登录接口
     
 
 }

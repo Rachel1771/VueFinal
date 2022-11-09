@@ -79,21 +79,6 @@ const router = new VueRouter({
   routes
 })
 
-//路由拦截
-router.beforeEach((to,from,next)=>{
-  // console.log('--------to--------',to);
-  if(to.matched.some(ele=>ele.meta.isLogin)){
-      let token ='';
-      if(token){
-        next();
-      }
-      else{
-        next('/login')
-      }
-  }
-  else{
-         next();
-  }
-})
+
 
 export default router
