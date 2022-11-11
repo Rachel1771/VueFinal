@@ -15,6 +15,7 @@ import * as echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
 
 
+
 new Vue({
   router,
   store,
