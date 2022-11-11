@@ -9,6 +9,11 @@ import './assets/css/iconfont/iconfont.css'
 import api from './api/index'
 Vue.prototype.$api = api;
 Vue.config.productionTip = false
+import './router/permission'
+import './utils/localStorage'
+import * as echarts from 'echarts'
+Vue.prototype.$echarts = echarts;
+
 
 new Vue({
   router,

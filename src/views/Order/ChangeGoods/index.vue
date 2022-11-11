@@ -1,12 +1,15 @@
 <template>
   <div>
-    <router-view/>
+      <h2>换货</h2>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+
+}
 </script>
 
 <style>
+
 </style>

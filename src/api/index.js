@@ -4,6 +4,7 @@
 
 import axios from 'axios'
 import base from './base'
+const qs = require('querystring')
 
 const api ={
     /**
@@ -37,6 +38,31 @@ const api ={
       */
      deleteGoods(params){
         return axios.get(base.deleteGoods,{params})
+    },
+
+    /**
+      * 登录接口
+      */
+     getLogin(params){
+        return axios.post(base.login,qs.stringify(params))
+     },
+
+
+     /**
+    * 统计数据
+    */
+    getStatistical() {
+        return axios.get(base.statistical)
+    },
+    /**
+     * 销量对比
+     */
+    getSellTotal() {
+        return axios.get(base.sellTotal)
+    },
+
+    orderList(params){
+        return axios.get(base.orderList,{params})
     },
 }
 
