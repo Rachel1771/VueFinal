@@ -46,7 +46,6 @@ const api ={
      getLogin(params){
         return axios.post(base.login,qs.stringify(params))
      },
-<<<<<<< HEAD
 
 
      /**
@@ -65,8 +64,7 @@ const api ={
     orderList(params){
         return axios.get(base.orderList,{params})
     },
-=======
->>>>>>> c361435391daeec8f54e7b64e9a9a8e623adf7c4
+
 }
 
 export default api

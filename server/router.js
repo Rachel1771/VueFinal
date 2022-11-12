@@ -4,10 +4,9 @@ const router = express.Router()
 const sqlFn = require('./mysql')
 const jwt = require('jsonwebtoken')
 const config = require('./secert')
-<<<<<<< HEAD
+
 const Mock = require('mockjs')
-=======
->>>>>>> c361435391daeec8f54e7b64e9a9a8e623adf7c4
+
 /**
  * 商品列表：获取分页 {total:'',arr:[{},{},{}],pagesize:8,}
  * 参数：page 页码
@@ -196,7 +195,6 @@ router.post('/login', (req, res) => {
 
     })
 })
-<<<<<<< HEAD
 
 //=====订单接口模拟==================================================
 /**
@@ -271,8 +269,7 @@ router.post('/login', (req, res) => {
      }
  })
  
-=======
->>>>>>> c361435391daeec8f54e7b64e9a9a8e623adf7c4
+
 
 
 

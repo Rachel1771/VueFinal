@@ -62,7 +62,7 @@ export default {
   height: 50px;
   line-height: 50px;
   color: #fff;
-  background: #1e78bf;
+  background: #15191d;
   .iconfont {
     font-size: 24px;
   }

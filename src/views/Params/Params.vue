@@ -1,6 +1,11 @@
 <template>
   <div>
       <h2>规格参数</h2>
+      <h2>规格参数</h2>
+      <h2>规格参数</h2>
+      <h2>规格参数</h2>
+      <h2>规格参数</h2>
+      <h2>规格参数</h2>
   </div>
 </template>
 
@@ -13,3 +18,6 @@ export default {
 <style>
 
 </style>
+
+
+

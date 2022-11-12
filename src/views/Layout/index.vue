@@ -33,7 +33,7 @@ export default {
         .menu{
             /* // width: 200px; */
             /* // min-height: 500px; */
-            background: #1b3554;
+            background: #15191d;
             position: fixed;
             top:0;
             bottom:0;
@@ -43,6 +43,7 @@ export default {
             transition: all 0.3s;
         }
         .isActive{
+            /* background-color:  #8c8e8e; */
             margin-left: 64px;
         }
     }

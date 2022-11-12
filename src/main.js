@@ -7,13 +7,21 @@ import './assets/css/reset.css'
 import './assets/css/iconfont.css'
 import './assets/css/iconfont/iconfont.css'
 import api from './api/index'
-Vue.prototype.$api = api;
-Vue.config.productionTip = false
+// import baiduMap from "vue-baidu-map";
 import './router/permission'
 import './utils/localStorage'
 import * as echarts from 'echarts'
-Vue.prototype.$echarts = echarts;
+import BaiduMap from 'vue-baidu-map'
 
+
+Vue.use(BaiduMap, {
+  // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+  ak: 'gOEnqWoXc29V2DI56j3aOBIAteQuFbeM'
+})
+Vue.prototype.$echarts = echarts;
+Vue.prototype.$api = api;
+Vue.config.productionTip = false
+// Vue.use(baiduMap, { ak: mapAK });
 
 
 new Vue({

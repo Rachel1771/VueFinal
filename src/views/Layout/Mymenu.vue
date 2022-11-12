@@ -5,9 +5,9 @@
       :default-active="$route.path"
       class="el-menu-vertical-demo"
       
-      background-color="#1b3554"
-      text-color="#fff"
-      active-text-color="#409EFF"
+      background-color="#15191d"
+      text-color=" #fff"
+      active-text-color=" #8c8e8e"
       router
       :collapse="isCollapse"
     >
@@ -42,7 +42,7 @@
           </el-menu-item>
           <el-menu-item index="/order/order-back">
             <i class="el-icon-setting"></i>
-            <span slot="title">退货管理</span>
+            <span slot="title">百度地图</span>
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
@@ -65,7 +65,7 @@ export default {
 .el-menu {
   border-right: 0;
   .is-active {
-    background: #054476 !important;
+    background:  #8c8e8e !important;
     color: #fff !important;
   }
 }

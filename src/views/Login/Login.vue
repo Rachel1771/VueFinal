@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="wrapper">
     <div class="login-box">
       <div class="logo">
@@ -8,13 +7,6 @@
       <!-- <h3 class="title">登录界面</h3> -->
       <div>{{ info }}</div>
       <el-form
-=======
-  <div>
-      <div class="login">
-        <h3 class="title">登录界面</h3>
-        <div>{{info}}</div>
-        <el-form
->>>>>>> c361435391daeec8f54e7b64e9a9a8e623adf7c4
         :model="loginForm"
         status-icon
         :rules="rules"
@@ -50,13 +42,8 @@
 <script>
 import jwt from 'jwt-decode'
 import {mapMutations} from 'vuex'
-<<<<<<< HEAD
  export default {
     data() {
-=======
-export default {
-  data() {
->>>>>>> c361435391daeec8f54e7b64e9a9a8e623adf7c4
       var validateUser = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入账号'));

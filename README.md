@@ -28,5 +28,6 @@ set NODE_OPTIONS=--openssl-legacy-provider
 - git pull --rebase origin master  
 - git push -u origin master
 
+npm config set legacy-peer-deps true
 
 ### 提供的帮助
