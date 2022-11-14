@@ -3,8 +3,8 @@
     <!-- 1. 搜索区域 -->
     <div class="header">
       <el-input @change="searchInp" v-model="input" placeholder="请输入内容"></el-input>
-      <el-button type="primary">查询</el-button>
-      <el-button type="primary" @click="addGoods">添加</el-button>
+      <el-button id="b1" type="primary" >查询</el-button>
+      <el-button id="b2" type="primary"  @click="addGoods">添加</el-button>
     </div>
 
     <!-- 2. 表格区域展示视图数据 -->
@@ -28,7 +28,9 @@
         </el-table-column>
         <el-table-column label="操作" width="280">
           <template slot-scope="scope">
+            <el-button size ="mini" type="primary"  icon="el-icon-edit">编辑</el-button>
             <el-button size ="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete">删除</el-button>
+            
             
           </template>
         </el-table-column>
@@ -181,8 +183,13 @@ export default {
 .header {
   display: flex;
   button{
-    margin-left: 20px;
+    margin-left: 20px;  
   }
+  .el-button--primary{
+          background-color: #15191d;
+          /* border-color: #6685a4; */
+  }
+  
 }
 .wrapper {
   margin: 20px 0;

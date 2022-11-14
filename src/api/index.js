@@ -5,6 +5,9 @@
 import axios from 'axios'
 import base from './base'
 const qs = require('querystring')
+// // axios 配置接口默认路径 
+// axios.defaults.baseURL = 'https://www.bookbook.cc/api/data-view' // 使用接口数据 可把后端仓库拉下来 改成 http://127.0.0.1:8801/api
+// Vue.prototype.$http = axios
 
 const api ={
     /**

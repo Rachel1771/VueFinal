@@ -6,7 +6,7 @@ import Login from '../views/Login/Login.vue'
 //异步
 const Goods = ()=>import('../views/Goods/Goods.vue')
 const Params = ()=>import('../views/Params/Params.vue')
-const Advert = ()=>import('../views/Advert/Advert.vue')
+const Advert = ()=>import('../views/Advert.vue')
 const Order = ()=>import('../views/Order/index.vue')
 const OrderList = ()=>import('../views/Order/OrderList/index.vue')
 const OrderBack = ()=>import('../views/Order/OrderBack/index.vue')

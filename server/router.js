@@ -17,7 +17,7 @@ router.get('/projectList', (req, res) => {
     sqlFn(sqlLen, null, data => {
         let len = data.length;
         // const sql = "select * from goodslist order by  id desc limit 8 offset" + (page - 1) * 8;
-        const sql = "select * from goodslist  limit 8 offset " + (page - 1) * 8;
+        const sql = "select * from goodslist  limit 10 offset " + (page - 1) * 10;
         sqlFn(sql, null, result => {
             if (result.length > 0) {
                 res.send({

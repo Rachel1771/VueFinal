@@ -12,8 +12,28 @@ import './router/permission'
 import './utils/localStorage'
 import * as echarts from 'echarts'
 import BaiduMap from 'vue-baidu-map'
+// 引入主题
+import './assets/lib/theme/chalk'
+import './assets/lib/theme/vintage'
+import './assets/lib/theme/westeros'
+import VCharts from 'v-charts'
+/* swiper */
+import 'swiper/dist/css/swiper.min.css';
+
+import './assets/css/reset.min.css'
+
+// import '@/assets/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min'
+
+import 'jquery'
 
 
+
+
+
+
+Vue.use(VCharts)
 Vue.use(BaiduMap, {
   // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
   ak: 'gOEnqWoXc29V2DI56j3aOBIAteQuFbeM'
