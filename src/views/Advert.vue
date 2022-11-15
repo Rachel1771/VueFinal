@@ -21,29 +21,37 @@
           <div class="swiper-button-next"></div>
         </div>
       </div>
-      <!-- Tessai资管系统 -->
+      
+      <!-- K8s -->
       <div id="bigData" class="container-fuild">
         <div class="row bigData-container">
-          <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
+          <div class="col-xs-12 col-sm-7 col-md-6.6 wow zoomIn">
             <img class="img-responsive" src="@/assets/img/img1.png" alt="Tessai资管系统">
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-6">
+          <div class="col-xs-12 col-sm-7 col-md-5">
             <h2 class="bigData-title">
-              Tessai资管系统
-              <small>/ Tessai Management System</small>
+              Kubernetes 也称为 K8s，是用于自动部署、扩缩和管理容器化应用程序的开源系统。
+              <!-- <small>/ Tessai Management System</small> -->
             </h2>
-            <p>智能化办公，提升效率；流程人性化。监管数据可模块化填报；只能一键式全市场下单交易，后台自动跑批数据。</p>
-            <p>我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网用户，还是专业网站制作人员。</p>
-            <h2 class="bigData-device">PC &nbsp; Windows系统支持</h2>
-            <a href="#" class="btn btn-lg btn-block btn-info">联系我们</a>
+            <p>它将组成应用程序的容器组合成逻辑单元，以便于管理和服务发现。Kubernetes 源自Google 15 年生产环境的运维经验，同时凝聚了社区的最佳创意和实践。</p>
+            <!-- <p>我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网用户，还是专业网站制作人员。</p> -->
+            <p>Google 每周运行数十亿个容器，Kubernetes 基于与之相同的原则来设计，能够在不扩张运维团队的情况下进行规模扩展。</p>
+            <p>无论是本地测试，还是跨国公司，Kubernetes 的灵活性都能让你在应对复杂系统时得心应手。</p>
+            <p>Kubernetes 是开源系统，可以自由地部署在企业内部，私有云、混合云或公有云，让您轻松地做出合适的选择。</p>
+            <h2 class="bigData-device">本项目 </h2>
+            <!-- &nbsp; Windows系统支持 -->
+            <p>本项目为2000300309陈乐在大三上册前端课程上的课程大作业，基于Vue、axios、JavaScript、CSS、H5等技术栈设计的电子公司项目。</p>
+            <P>实现了利用element-ui实现基本组件交互，mock实现数据动态模拟，echarts完成数据表格设计，同时自己设计了API实现了后台数据的管理。</P>
+            <h2 class="bigData-device">PC</h2>
+            <a href="https://github.com/Rachel1771/VueFinal.git" class="btn btn-lg btn-block btn-info">加入我们</a>
           </div>
         </div>
       </div>
       <!-- 您身边的IT专家 -->
       <div id="contactUs" class="container-fuild text-center">
         <div class="container contactUs-container wow slideInUp">
-          <h1>您身边的IT专家</h1>
-          <h3>7x24小时提供出色的IT服务</h3>
+          <h1>优秀出色的服务</h1>
+          <h3>全天候在线为您服务</h3>
           <button
             class="btn btn-default btn-sm"
             onmouseleave="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"
@@ -85,31 +93,15 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
           </div>
-          <!-- 手机端客户评价 -->
-          <div class="row visible-xs customer-block">
-            <div class="col-xs-12" v-for="(item,index) in customerList" :key="index">
-              <div class="customer-logo">
-                <img class="center-block" :src="item.logo" alt="logo">
-              </div>
-              <div class="customer-yh">
-                <img src="@/assets/img/yinhao_left.png" alt="引号">
-              </div>
-              <div class="customer-content1">
-                <small>{{item.content}}</small>
-              </div>
-              <div class="customer-content2">
-                <small>{{item.title}}</small>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
-      <!-- 为什么选择我们 -->
+      <!--  关于作者-->
       <div id="whyChooseUs" class="conatiner-fuild">
         <div class="container">
           <div class="whyChooseUs-title text-center">
-            <p>为什么选择我们的服务</p>
-            <p>THE REASON TO CHOOSING US</p>
+            <p>关于作者</p>
+            <p>About the author</p>
           </div>
           <div class="row">
             <div
@@ -148,136 +140,95 @@
       return {
         swiperList: [
           {
-            img: require("@/assets/img/banner1.png"),
+            img: require("@/assets/img/ban1.jpg"),
             path: "",
-            title: '商务协调团队',
-            content: '协助银行、信托交易所、证券交易客户方案选型，梳理客户需求等工作',
+            title: '销售团队',
+            content: '多年的销售经验，精通我们的直线产品以及对各产品以及周边产品有足够的了解，给你最合适的推荐',
           },
           {
-            img: require("@/assets/img/banner2.jpg"),
+            img: require("@/assets/img/ban2.jpg"),
             path: "",
-            title: '售后服务团队',
-            content: '受理用户的系统建设，以现场+远程的方式进行服务，负责跟进客户系统使用情况',
+            title: '开发团队',
+            content: '开发团队由来自世界各地的技术人员组成，有足够强硬的技术，持续进行整体的开发',
           },
           {
-            img: require("@/assets/img/banner1.png"),
+            img: require("@/assets/img/ban5.jpg"),
             path: "",
-            title: '培训讲师团队',
-            content: '以现场、远程等方式完成系统操作培训，收集用户使用反馈',
+            title: '售后团队',
+            content: '本公司有着完善的售后链，提供优质的保修和维护等后续的免费服务，致力于给每个客户提供最好的',
           },
           {
-            img: require("@/assets/img/banner2.jpg"),
+            img: require("@/assets/img/ban3.jpg"),
             path: "",
-            title: '系统开发团队',
-            content: '对客户需求进行持续响应，保证系统满足用户业务动态发展的需要',
+            title: '管理团队',
+            content: '公司的管理模式采用实现集成化管理与决策信息系统的理论基础的管理模式，团队有较高的凝聚力',
           }
         ],
         customerList: [
           {
-            logo: require("@/assets/img/logo_hp.png"),
+            logo: require("@/assets/img/联通.png"),
             title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+              "欢迎进一步了解",
             content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+              "Kubernetes is a great platform for machine learning because it comes with all the scheduling and ,Kubernetes is a great platform for machine learning because it comes with all the scheduling and"
           },
           {
-            logo: require("@/assets/img/logo_kk.png"),
+            logo: require("@/assets/img/移动.png"),
             title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+              "欢迎进一步了解",
             content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+              "Kubernetes has improved our experience using cloud infrastructure. Kubernetes has improved our experience using cloud infrastructure. There is currently no alternative"
           },
           {
-            logo: require("@/assets/img/logo_toyota.png"),
+            logo: require("@/assets/img/宝马.png"),
             title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+              "欢迎进一步了解",
             content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+              "Kubernetes is a great solution for us. It allows us to rapidly iterate on our clients' demands,Kubernetes is a great solution for us. It allows us to rapidly iterate on our clients' demands"
           },
           {
-            logo: require("@/assets/img/logo_kk.png"),
+            logo: require("@/assets/img/谷歌.png"),
             title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+              "欢迎进一步了解",
             content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+              "We realized that we needed to learn Kubernetes better in order to fully use the potential of it,We realized that we needed to learn Kubernetes better in order to fully use the potential of it."
           },
           {
-            logo: require("@/assets/img/logo_hp.png"),
+            logo: require("@/assets/img/腾讯云.png"),
             title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+              "欢迎进一步了解",
             content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+              "We realized that we needed to learn Kubernetes better in order to fully use the potential of it,We realized that we needed to learn Kubernetes better in order to fully use the potential of it."
           },
           {
-            logo: require("@/assets/img/logo_toyota.png"),
+            logo: require("@/assets/img/微软1.png"),
             title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+              "欢迎进一步了解",
             content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+              "We realized that we needed to learn Kubernetes better in order to fully use the potential of it,We realized that we needed to learn Kubernetes better in order to fully use the potential of it."
           },
-          {
-            logo: require("@/assets/img/logo_kk.png"),
-            title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-            content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-          },
-          {
-            logo: require("@/assets/img/logo_hp.png"),
-            title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-            content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-          },
-          {
-            logo: require("@/assets/img/logo_toyota.png"),
-            title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-            content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-          },
-          {
-            logo: require("@/assets/img/logo_hp.png"),
-            title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-            content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-          },
-          {
-            logo: require("@/assets/img/logo_kk.png"),
-            title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-            content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-          },
-          {
-            logo: require("@/assets/img/logo_hp.png"),
-            title:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-            content:
-              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-          }
+          
         ],
         serverList: [
           {
-            logo: require("@/assets/img/tel.png"),
-            title: "核心优势1",
-            content: "<p>由专业客服提供人工服务</p>负责疑难问题和故障受理"
+            logo: require("@/assets/img/github.png"),
+            title: "GitHub",
+            content: "<p>优质的代码开源平台</p>在这里能找到更多喜欢的",
           },
           {
-            logo: require("@/assets/img/computer.png"),
-            title: "核心优势2",
-            content: "<p>利用远程视频工具</p>帮助客户进行调试"
+            logo: require("@/assets/img/QQ.png"),
+            title: "QQ",
+            content: "<p>现代规模最大的社交软件</p>促进你我之间的距离"
           },
           {
-            logo: require("@/assets/img/qq.png"),
-            title: "核心优势3",
-            content: "<p>利用企业QQ在线解答</p>帮助企业解决问题"
+            logo: require("@/assets/img/网易云音乐.png"),
+            title: "网易云",
+            content: "<p>优秀的音乐播放平台</p>发现你爱听的音乐"
           },
           {
-            logo: require("@/assets/img/skill.png"),
-            title: "核心优势4",
-            content: "<p>由技术支持工程师负责</p>需求受理及故障受理"
+            logo: require("@/assets/img/csdn.png"),
+            title: "CSDN",
+            content: "<p>技术人员交流社区</p>分享你的技术"
           }
         ]
       };
@@ -341,6 +292,7 @@
     methods: {
       /** 前往联系我们页面 */
       navToContactPage() {
+        
       }
     }
   };
@@ -408,9 +360,9 @@
   
   /* 您身边的IT专家 */
   #contactUs {
-    color: #fff;
+    color: rgb(233, 240, 245);
     height: 400px;
-    background: url("../assets/img/contact_us_bg.jpg") 0 0 no-repeat;
+    background: url("../assets/img/IT.png") 0 0 no-repeat;
     background-size: 100% 100%;
     transition: all ease 0.6s;
   }

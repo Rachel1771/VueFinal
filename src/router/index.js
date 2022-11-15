@@ -6,6 +6,7 @@ import Login from '../views/Login/Login.vue'
 //异步
 const Goods = ()=>import('../views/Goods/Goods.vue')
 const Params = ()=>import('../views/Params/Params.vue')
+const Server = ()=>import('../views/Server.vue')
 const Advert = ()=>import('../views/Advert.vue')
 const Order = ()=>import('../views/Order/index.vue')
 const OrderList = ()=>import('../views/Order/OrderList/index.vue')
@@ -44,7 +45,15 @@ const routes = [
       {
         path:'/params',
         name:'Params',
-        component:Params
+        component:Params,
+      },
+      {
+        path:'/server',
+        name:'Server',
+        component: Server,
+        // meta: {
+        //   title: title + '-相关服务'
+        // }
       },
       {
         path:'/advert',

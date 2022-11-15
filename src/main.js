@@ -27,7 +27,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
 
 import 'jquery'
+/* 尾部组件 */
+import Tail from './components/tail.vue'
 
+
+Vue.component(Tail.name,Tail)
 
 
 

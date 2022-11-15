@@ -1,23 +1,28 @@
 <template>
   <div class="home">
-
-    <!-- <el-carousel indicator-position="outside" >
-      <el-carousel-item v-for="item in firstimage" :key="item">
-        <img :src="item.url"/>
-      </el-carousel-item>
-    </el-carousel> -->
-    <!-- <div class="demo-image__placeholder">
-      <div class="block">
-
-        <el-image :src="imageurl"></el-image>
-      </div>
-    </div> -->
-
-    <el-carousel :interval="4000" type="card" height="300px">
+    <!-- <el-carousel :interval="4000" type="card" height="300px">
       <el-carousel-item v-for="item in imgdata" :key="item">
         <img :src="item.url" alt=""/>
       </el-carousel-item>
-    </el-carousel>
+    </el-carousel> -->
+    <div id="swiper" class="container-fuild">
+      <div class="swiper-container banner-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
+            <img class="swiper-lazy" :data-src="item.img" alt="轮播图">
+            <div class="swiper-lazy-preloader"></div>
+            <div class="swiper-slide-title">
+                <h1>{{item.title}}</h1>
+                <p>{{item.content}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
     <div class="header">
       <div class="item" v-for="item in totalData" :key="item.id">
         {{ item.title }}
@@ -26,28 +31,21 @@
       </div>
     </div>
 
-    <!-- 访问时长 -->
+    <!-- Echarts组件 -->
     <div class="content">
       <div class="time-info">
         <div class="title">经济占比</div>
         <div id="charts" style="width: 100%; height: 360px"></div>
       </div>
-      <!-- <div class="area">地区分布</div> -->
-      <!-- <div id="middle-bottom" :class="{ fullscreen: fullScreenStatus.rank }"> -->
-        <!-- 地区销量排行图表 -->
+
       <div class="area">
-        <!-- <Rank ref="rank"></Rank> -->
-        <!-- <div class="resize">
-          <span @click="changeSize('rank')" :class="['iconfont', fullScreenStatus.rank ? 'icon-compress-alt' : 'icon-expand-alt']"></span>
-        </div> -->
         <div class="title">品牌销售</div>
         <div id="charts1" style="width: 100%; height: 400px"></div>
       </div>
-        
-      <!-- </div> -->
+
     </div>
 
-    <!-- 最新内容 -->
+    <!-- 语言和目标卡片 -->
     <div class="home-footer">
       <el-card class="box-card">
         <!-- <div slot="header" class="clearfix">
@@ -56,27 +54,28 @@
         <div v-for="o in 4" :key="o" class="text item">
           {{ "列表内容 " + o }}
         </div> -->
-        <h2>语言详情</h2>
+        <h2>技术栈</h2>
         <h3>Vue</h3>
-					<el-progress :percentage="71.3" color="#42b983"></el-progress>
-          <h3>CSS</h3>
-					<el-progress :percentage="24.1" color="#f1e05a"></el-progress>
+					<el-progress :percentage="54.1" color="#42b983"></el-progress>
           <h3>JavaScript</h3>
-					<el-progress :percentage="13.7"></el-progress>
+					<el-progress :percentage="23.5" color="#f1e05a"></el-progress>
+          <h3>CSS</h3>
+					<el-progress :percentage="18.0"></el-progress>
           <h3>HTML</h3>
-					<el-progress :percentage="5.9" color="#f56c6c"></el-progress>
+					<el-progress :percentage="7.4" color="#f56c6c"></el-progress>
           <h3>Markdown</h3>
-					<el-progress :percentage="5.9" color="#f16c7c"></el-progress>
+					<el-progress :percentage="2.1" color="#716c7c"></el-progress>
 					
       </el-card>
-
-
       <el-card class="box-card">
         <div slot="header" class="clearfix">
-          <h2>新增产品</h2>
+          <h2>热销产品</h2>
         </div>
-        <div v-for="o in 10" :key="o" class="text item">
+        <!-- <div v-for="o in 10" :key="o" class="text item">
           {{ "列表内容 " + o }}
+        </div> -->
+        <div v-for="item in goods">
+            {{item.title}}
         </div>
       </el-card>
       <el-card class="box-card" shadow="hover">
@@ -86,20 +85,21 @@
         <div class="text item">
           <!-- <el-button type="primary">产品管理</el-button> -->
           <el-checkbox v-for="item in message">
-            <h3>
+            <h4>
               {{item.title}}
-            </h3>
+            </h4>
           </el-checkbox>
         </div>
         </el-table>
       </el-card>
     </div>
    
+    <!-- 简介面板 -->
     <div class="intrudion">
     <el-collapse accordion>
       <el-collapse-item>
         <template slot="title">
-          <h1>公司简介<i class="el-icon-s-help"></i></h1>
+          <h2>公司简介<i class="el-icon-s-help"></i></h2>
         </template>
         <el-divider></el-divider>
         <h4>
@@ -131,12 +131,9 @@
       </div>
     </h4>
       </el-collapse-item>
-    
-
-
       <el-collapse-item>
         <template slot="title">
-          <h1>主研方向<i class="el-icon-star-on"></i></h1>
+          <h2>主研方向<i class="el-icon-s-promotion"></i></h2>
         </template>
         <el-divider></el-divider>
         <h4>
@@ -150,31 +147,24 @@
             了解更多<i class="el-icon-more"></i>
           </a>
           </div>
-
           <div>
             ubernetes，简称K8s，是用8代替名字中间的8个字符“ubernete”而成的缩写。是一个开源的，用于管理云平台中多个主机上的容器化的应用，Kubernetes的目标是让部署容器化的应用简单并且高效（powerful）,Kubernetes提供了应用部署，规划，更新，维护的一种机制。 [1] 
             传统的应用部署方式是通过插件或脚本来安装应用。这样做的缺点是应用的运行、配置、管理、所有生存周期将与当前操作系统绑定，这样做并不利于应用的升级更新/回滚等操作，当然也可以通过创建虚拟机的方式来实现某些功能，但是虚拟机非常重，并不利于可移植性。
             新的方式是通过部署容器方式实现，每个容器之间互相隔离，每个容器有自己的文件系统 ，容器之间进程不会相互影响，能区分计算资源。相对于虚拟机，容器能快速部署，由于容器与底层设施、机器文件系统解耦的，所以它能在不同云、不同版本操作系统间进行迁移。
             容器占用资源少、部署快，每个应用可以被打包成一个容器镜像，每个应用与容器间成一对一关系也使容器有更大优势，使用容器可以在build或release 的阶段，为应用创建容器镜像，因为每个应用不需要与其余的应用堆栈组合，也不依赖于生产环境基础结构，这使得从研发到测试、生产能提供一致环境。类似地，容器比虚拟机轻量、更“透明”，这更便于监控和管理。
-
-            <div>
+          <div>
               <a href="https://kubernetes.io/zh" @click="3">
-              了解更多<i class="el-icon-more"></i>
+              了解更多<i class="el-icon-s-custom"></i>
             </a>
             </div>
           </div>
         </h4>
       </el-collapse-item>
-
-
-
-
       <el-collapse-item>
         <template slot="title">
-          <h1>技术人员<i class="el-icon-star-on"></i></h1>
+          <h2>技术人员<i class="el-icon-star-on"></i></h2>
         </template>
         <el-divider></el-divider>
-
         <h4>
           <div>尤雨溪，前端框架Vue.js的作者，HTML5版Clear的打造人，独立开源开发者。曾就职于Google Creative Labs和Meteor Development Group。由于工作中大量接触开源的JavaScript项目，最后自己也走上了开源之路，现全职开发和维护Vue.js的作者，HTML5版Clear的打造人，独立开源开发者。曾就职于Google。
         </div>
@@ -195,42 +185,31 @@
         </div>
       </h4>    
     </el-collapse-item>
-
-
-
-
-
       <el-collapse-item>
         <template slot="title">
-          <h1>周边联动<i class="el-icon-star-on"></i></h1>
+          <h2>周边联动<i class="el-icon-s-grid"></i></h2>
         </template>
         <el-divider></el-divider>
-        <div>
-          
+        <div>   
           <a href="https://www.mcdonalds.com.cn/" @click="3">
             <h3>Mcdonalds<i class="el-icon-more"></i></h3>
-          </a>
-          
+          </a>  
         </div>
-
         <div>
           <a href="https://www.mcdonalds.com.cn/" @click="4">
             <h3>KFC<i class="el-icon-more"></i></h3>
           </a>
         </div>
-
         <div>
           <a href="https://www.coca-colacompany.com/cn/our-company" @click="5">
             <h3>CoaCaCola<i class="el-icon-more"></i></h3>
           </a>
         </div>
-
         <div>
           <a href="https://www.subway.com.cn/" @click="6">
             <h3>Subway<i class="el-icon-more"></i></h3>
           </a>
         </div>
-
         <div>
           <a href="http://www.pizzahut.com.cn/" @click="7">
             <h3>Pizzahut<i class="el-icon-more"></i></h3>
@@ -238,15 +217,16 @@
         </div>
       </el-collapse-item>
     </el-collapse>
-
   </div>
 </div>
 </template>
 
 <script>
-// import Rank from '@/components/Rank.vue'
+
 import { mapState } from 'vuex'
 import { reactive } from 'vue';
+import Swiper from "swiper";
+import { WOW } from 'wowjs';
 
 export default {
   components: {
@@ -254,6 +234,32 @@ export default {
   },
   data() {
     return {
+      swiperList: [
+          {
+            img: require("@/assets/images/home/p1.jpg"),
+            path: "",
+            title: '优质产品',
+            content: '所有产品来自官方渠道，价格合理，质量优秀',
+          },
+          {
+            img: require("@/assets/images/home/p2.jpg"),
+            path: "",
+            title: '优秀售后',
+            content: '所有电子产品售出均享受优质的售后服务，提供免费的保修和维修服务',
+          },
+          {
+            img: require("@/assets/images/home/p5.jpg"),
+            path: "",
+            title: '广泛合作',
+            content: '本公司与多家互联网公司和生产企业进行合作，共同推出创新产品',
+          },
+          {
+            img: require("@/assets/images/home/p4.jpg"),
+            path: "",
+            title: '强劲团队',
+            content: '公司团队部门众多，各部门各司其职，掌握一定的优秀核心技术',
+          }
+        ],
       totalData: [],
       activeNames: ['1'],
       imageurl:'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
@@ -268,42 +274,90 @@ export default {
       firstimage:[{url:require("@/assets/images/home/first.jpg")}],
       message:[
         {
-          title: '今天要修复100个bug',
+          title: '写一个简单程序，完成HelloWorld',
           status: false
         },
         {
-          title: '今天要修复100个bug',
+          title: '看看自己写的屎山，修复1个bug',
           status: false
         },
         {
-          title: '今天要写100行代码加几个bug吧',
+          title: '多喝点水，卖十部手机',
           status: false
         },
         {
-          title: '今天要修复100个bug',
+          title: '希望天气转热，卖一台空调',
           status: false
         },
         {
-          title: '今天要修复100个bug',
+          title: '看点优质博主的分享，写一篇文档',
           status: true
         },
         {
-          title: '今天要写100行代码加几个bug吧',
+          title: '听20首古典乐',
           status: true
         }
+      ],
+      goods:[
+      {
+          title: 'Dash充电器',
+          status: false
+        },
+        {
+          title: '飞利浦9600',
+          status: false
+        },
+        {
+          title: '罗技G304',
+          status: false
+        },
+        {
+          title: 'iPad2022',
+          status: false
+        },
+        {
+          title: 'AppleWatchSe',
+          status: true
+        },
+        {
+          title: 'iKFking',
+          status: true
+        },
+        {
+          title: 'LG显示器',
+          status: true
+        },
+        {
+          title: 'iKFking',
+          status: true
+        },
+        {
+          title: '华为Mate40pro',
+          status: true
+        },
+        {
+          title: 'iphone14Pro',
+          status: true
+        },
+        {
+          title: 'cy68',
+          status: true
+        },
+        {
+          title: '格力空调扇',
+          status: true
+        },
+        {
+          title: 'AppleBookAir',
+          status: true
+        },
       ]
+      
     };
   },
   mounted() {
-    // console.log("this.$echarts.init", this.$echarts);
-    // console.log(document.getElementById("charts"));
-    // this.imgLoad();
-    //         window.addEventListener('resize',() => {
-    //             this.bannerHeight=this.$refs.bannerHeight[0].height;
-    //             this.imgLoad();
-    //         },false)
-    //进度
-    //销售数据量
+
+    //Mock模拟数据
     this.$api.getStatistical().then((res) => {
       console.log("销售数据量", res.data);
       //totalData
@@ -311,7 +365,6 @@ export default {
         this.totalData = res.data.list;
       }
     });
-    //--销售比----------------------
     this.$api.getSellTotal().then((res) => {
       console.log(res.data);
       //获取x轴数据
@@ -327,11 +380,65 @@ export default {
           data.push(item.num)
         })
       });
-      //折线 
-      // this.initCharts(xData,data.slice(0,6),data.slice(6,12),data.slice(12,18));
+
+      //Echarts数据
       this.draw2();
       this.draw1();
     });
+
+    new Swiper(".banner-swiper", {
+        loop: true, // 循环模式选项
+        effect: 'fade',
+        //自动播放
+        autoplay: {
+          delay: 3000,
+          stopOnLastSlide: false,
+          disableOnInteraction: false
+        },
+        // 如果需要分页器
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        // 延迟加载
+        lazy: {
+          loadPrevNext: true
+        },
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true //修改swiper的父元素时，自动初始化swiper
+      });
+      /* customer-swiper */
+      new Swiper(".customer-swiper", {
+        loop: true, // 循环模式选项
+        slidesPerView: 3,
+        //自动播放
+        autoplay: {
+          delay: 3000,
+          stopOnLastSlide: false,
+          disableOnInteraction: false
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true //修改swiper的父元素时，自动初始化swiper
+      });
+      /* wowjs动画 */
+      var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 0,
+        mobile: true,
+        live: true
+      })
+      wow.init();
   },
   methods: {
     //折线图
@@ -603,21 +710,45 @@ export default {
 </script>
 
 <style lang='less' scoped>
-/* .el-carousel__item h3 {
-    color: #1b2f49;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
+
+  /* 首页轮播图 */
+  #swiper {
+    height: 600px;
   }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
+  #swiper .banner-swiper {
+    width: 100%;
+    height: 100%;
   }
-  
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #425770;
-  } */
+  #swiper .banner-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+  }
+  #swiper .banner-swiper .swiper-slide{
+    position: relative;
+  }
+  #swiper .banner-swiper .swiper-slide-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: rgba(51, 51, 51, 0.534);
+    text-align: center;
+    line-height: 80px;
+  }
+  #swiper .banner-swiper .swiper-slide-title > h1{
+    font-size: 50px;
+    margin-top: 12%;
+  }
+  #swiper .banner-swiper .swiper-slide-title > p{
+    font-size: 20px;
+    margin-top: 1%;
+    font-weight: 700;
+  }
+
+  /* 走马灯 */
   /* .el-carousel__item h3 {
     color: #475669;
     font-size: 18px;
@@ -625,36 +756,13 @@ export default {
     line-height: 300px;
     margin: 0;
   }
-  
   .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
-  
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  } */
-
-
-
-
-
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 18px;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
-  }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
     
-  }
-
+  } */
 
 .home{
   margin: 10px;
@@ -662,6 +770,7 @@ export default {
 .header {
   display: flex;
   padding-right: 30px;
+  padding-top: 30px;
   .item {
     flex: 1;
     height: 100px;
@@ -676,13 +785,13 @@ export default {
     position: relative;
     .num {
       font-size: 22px;
-      margin: 10px;
+      margin: 1px;
           color: #fff;
     }
     .bottom {
       position: absolute;
-      border-top: 1px solid rgb(246, 245, 245);
-      padding: 10px 20px;
+      border-top: 1px solid rgb(148, 121, 121);
+      padding: 5px 20px;
       bottom: 0;
       right: 0;
       left: 0;
@@ -705,6 +814,7 @@ export default {
 }
 
 .content {
+  
   margin: 20px;
   display: flex;
   /* width: 800px; */
@@ -719,18 +829,16 @@ export default {
     flex: 1;
     background: #fff;
     padding: 10px;
-    /* margin-top: 25px;
-      width: 100%;
-      height: 28%;
-      position: relative; */
   }
 }
 
 .home-footer {
   display: flex;
+  padding-top: 30px;
   padding-left: 20px;
   margin-bottom:20px;
   .box-card {
+    background-color: #d9bcb4;
     flex: 1;
     margin-right: 30px;
     span {
@@ -748,6 +856,7 @@ export default {
 .intrudion{
   margin-left: 20px;
   margin-right: 28px;
+  margin-top: 30px;
 }
 
 

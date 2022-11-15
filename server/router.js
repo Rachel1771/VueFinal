@@ -23,7 +23,7 @@ router.get('/projectList', (req, res) => {
                 res.send({
                     status: 200,
                     data: result,
-                    pageSize: 8,
+                    pageSize: 10,
                     total: len
                 })
             } else {
